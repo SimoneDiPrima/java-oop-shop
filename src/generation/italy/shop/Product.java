@@ -1,5 +1,6 @@
 package generation.italy.shop;
 
+import java.util.Random;
 public class Product {
 		
 		String name;
@@ -12,17 +13,26 @@ public class Product {
 			this.description = description;
 			this.price = price;
 		}
+		public int price() {
+			return price;
+		}
 
 		public int tax() {
 		
-		return price = price -(price*20/100);
+		return price = price +(price*20/100);
 	}
-		public String toString() {
+		public static String getRandomNumberString() {
+		    Random rnd = new Random();
+		    int number = rnd.nextInt(99999);
+		    return String.format("%05d", number);
+		}
+		
+		public String toString(){
 
 			return "il nome del Prodotto è: " + name + "\nCosa c è da sapere:" + description
-					+ "\nprezzo: " + tax() + "€";
-				
-		}
+					+ "\nprezzo: " + tax() + "€" + "\nEan:"+ getRandomNumberString();
+			
 	}
+}
 
 
